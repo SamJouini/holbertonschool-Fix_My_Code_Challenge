@@ -14,7 +14,13 @@ if (process.argv.length <= 2) {
     process.exit(1)
 }
 
-size = parseInt(process.argv[2])
+size = parseInt(process.argv[2], 10)
+
+// Check if size is a valid number and greater than 0
+if (isNaN(size) || size <= 0) {
+    process.stderr.write("Invalid argument: size must be a positive number\n");
+    process.exit(1);
+}
 
 for (let i = 0 ; i < size ; i ++) {
     for (let j = 0 ; j < size ; j ++) {
